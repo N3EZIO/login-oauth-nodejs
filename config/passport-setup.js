@@ -10,9 +10,9 @@ passport.use(
         clientSecret: keys.google.clientSecret,
     }, (accessToken, refreshToken, profile, done) => {
         // passport callback function
-        console.log('passport callback function fired:');
-        console.log(profile);
-        console.log(profile.displayname)
+        // console.log('passport callback function fired:');
+        // console.log(profile);
+        // console.log(profile.displayname)
         new User({
             username: profile.displayName,
             googleID: profile.id,
