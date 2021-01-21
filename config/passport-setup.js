@@ -13,13 +13,27 @@ passport.use(
         // console.log('passport callback function fired:');
         // console.log(profile);
         // console.log(profile.displayname)
-        new User({
-            username: profile.displayName,
-            googleID: profile.id,
-            emailID: profile.emails[0].value
-        }).save().then((newUser)=> {
-            console.log(`new user created ${newUser}`)
+        User.findOne({googleID: profile.id}).then((currentUser) => {
+            if(currentUser){
+
+                //if user found
+                console.log(`user is ${currentUser}`)
+
+            }else{
+
+                //create user
+
+                new User({
+                    username: profile.displayName,
+                    googleID: profile.id,
+                    emailID: profile.emails[0].value
+                }).save().then((newUser)=> {
+                    console.log(`new user created ${newUser}`)
+                })
+            }
         })
+
+        
 
     })
 )
