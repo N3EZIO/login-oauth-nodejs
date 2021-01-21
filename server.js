@@ -4,7 +4,6 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const cors = require('cors')
 const loginroute = require('./api/routes/login');
-const mongorurl = "mongodb+srv://cluster0.5vvbo.mongodb.net/<dbname>"
 const keys = require('./config/keys');
 const passportSetup = require('./config/passport-setup')
 
