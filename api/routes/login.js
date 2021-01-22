@@ -27,12 +27,14 @@ Router.get('/google',passport.authenticate('google', {
 
 Router.get('/google/redirect',passport.authenticate('google'),(req,res) => {
 
-    res.send('You have reached the callback URI')
+    res.redirect('/profile')
+    //res.send(req.user)
 })
 
 //logging out
 Router.get('/logout',(req,res,next) => {
-    res.send('logging out');
+    req.logOut();
+    res.redirect('/')
 })
 
 
